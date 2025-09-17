@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>SVG</title>
 
     <!-- Normalize and stylesheet links -->
     <link rel="stylesheet" href="styles/normalize-code.css">
     <link rel="stylesheet" href="styles/index.css">
 </head>
-<body><main></main></body></html>
+<body>
+    <main>
+        <section class="vr">
+            <div class="vr__container">
+                <h3 class="vr__title">Clock</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 250 250" fill="none">
+                    <circle cx="125" cy="125" r="90" fill="black" />
+                    <polyline points="75,125 125,125 125,70" stroke="white"  stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />      
+                </svg>
+            </div>
+            <div class="vr__container">
+                <h3 class="vr__title"></h3>
+                <article class="vr__b"></article>
+            </div>
+            <div class="vr__container">
+                <h3 class="vr__title"></h3>
+                <article class="vr__c"></article>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 
