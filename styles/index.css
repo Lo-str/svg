@@ -1,19 +1,20 @@
 /* Page base */
 body {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* start so titles sit at the top */
+    align-items: center;
     margin: 0;
 }
 
 /* Main container */
 .vr {
-    min-height: 100vh;
     max-width: 1000px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 /* Titles */
@@ -40,6 +41,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    perspective: 900px;
+    transform-style: preserve-3d;
 }
 
 /* Head */
@@ -63,10 +66,9 @@ body {
 /* Eyes container */
 .monster__eyes {
     position: absolute;
-    top: 27%;
-    left: 50%;
-    z-index: 3;
-    transform: translateX(-50%);
+    top: 30%;
+    left: 20%;
+    z-index: 2;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -86,39 +88,37 @@ body {
 }
 
 /* Arms */
-.monster__arm {
+.monster__arms {
     position: absolute;
     z-index: 1;
-    top: 20%;
+    top: 16%;
+    left: 30%;
     width: 150px;
+    display: flex;
 }
 
-.monster__arm--left {
-    left: -30px;
+.monster__arm-left.monster__arm-left--animation {
+    position: absolute;
+    left: -128%;
+    transform-origin: left center;
+    transform: rotate(-38deg);
+    animation: arm-left-up 2s ease-in-out infinite alternate;
 }
 
-.monster__arm--right {
-    right: -32px;
+.monster__arm-right.monster__arm-right--animation {
+    position: absolute;
+    right: -135%;
+    transform-origin: right center;
+    transform: rotate(38deg);
+    animation: arm-right-up 2s ease-in-out infinite alternate;
 }
 
 @keyframes arm-left-up {
-    from {transform: rotate(0deg);}
-    to{transform: rotate(-60deg);}
+  0%   { transform: rotate(-38deg) translateY(0) rotateX(0deg) scaleY(0);}
+  100% { transform: rotate(-28deg) translateY(32px) rotateX(-30deg) scaleY(1);}
 }
 
 @keyframes arm-right-up {
-    from {transform: rotate(0deg);}
-    to{transform: rotate(60deg);}
-}
-
-.monster__arm--left {
-    left: -45px;
-    transform-origin: top right;
-    animation: arm-left-up 2s infinite ease-in-out;
-}
-
-.monster__arm--right {
-    right: -36px;
-    transform-origin: top left;
-    animation: arm-right-up 2s infinite ease-in-out;
+  0%   { transform: rotate(38deg) translateY(0) rotateX(0deg) scaleY(0);}
+  100% { transform: rotate(28deg) translateY(32px) rotateX(30deg) scaleY(1);}
 }

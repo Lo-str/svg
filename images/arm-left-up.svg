@@ -1,22 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="380"
-    viewBox="0 0 160 380" transform="rotate(-140,140,50) scale(-1,1) 
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="380" transform="rotate(-210,115,-20) scale(-1,1) 
     translate(-170,-0)">
   <path d="
     M22 60 
     Q82 145 90 283
     Q95 290 97 280
-    Q104 295 108 280
+    Q104 295 108 275
     Q108 293 115 285
     Q130 145 30 10"
 
     fill="#2E1B51"
     stroke="#000"
     stroke-width="3"
-    stroke-linecap="butt"/>
+    stroke-linecap="butt" 
+    transform="scale(-1,1) 
+    translate(-170,-0)"/>
     <path d="
-    M90 283
+    M90 283 
     Q95 290 97 280
-    Q104 295 108 280
+    Q104 295 108 275
     Q108 293 115 285
     Q150 285 157 300
     Q138 295 118 307
@@ -33,5 +34,7 @@
     fill="#1b4b51ff"
     stroke="#000"
     stroke-width="3"
-    stroke-linejoin="round"/>  
+    stroke-linejoin="round"
+    transform="scale(-1,1) 
+    translate(-170,-0)" />  
 </svg>
