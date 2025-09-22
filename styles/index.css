@@ -1,277 +1,260 @@
 /* Page base */
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 /* Main container */
 .vr {
-    max-width: 1000px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
 }
 
 /* Titles */
 .vr__h1 {
-    font-family: "Barrio", system-ui;
-    font-size: clamp(2rem, 5vw, 3rem);
-    text-align: center;
-    color: rgb(7, 7, 82);
-    text-transform: uppercase;
-    margin: 10px 0 0 0;
+  font-family: "Barrio", system-ui;
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  color: rgb(7, 7, 82);
+  text-transform: uppercase;
+  margin: 10px 0 0;
 }
 
 .vr__h2 {
-    font-family: "Rock 3D", system-ui;
-    font-size: clamp(1rem, 3.5vw, 1.5rem);
-    text-align: center;
-    color: rgb(13, 13, 148);
-    margin: 0;
+  font-family: "Rock 3D", system-ui;
+  font-size: clamp(1rem, 3.5vw, 1.5rem);
+  text-align: center;
+  color: rgb(13, 13, 148);
+  margin: 0;
 }
 
 /* Monster wrapper */
 .monster {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 900px;
-    transform: translateY(-50%);
-    transform-style: preserve-3d;
-    animation: float 3s ease-in-out infinite;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Head */
 .monster__head {
-    display: flex;
-    z-index: 2;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Head image */
 .monster__head img {
-    display: block;
-    max-width: 400px;
-    width: 100%;
-    height: auto;
+  display: block;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
 }
 
-/* Eyes container */
+/* Eyes */
 .monster__eyes {
-    position: absolute;
-    top: 30%;
-    left: 22%;
-    z-index: 2;
-    width: 220px;
-    height: 110px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  position: absolute;
+  top: 30%;
+  left: 22%;
+  z-index: 2;
+  width: 220px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* Each eye */
 .monster__eye {
-    position: relative;
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    cursor: pointer;
-    overflow: hidden;
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .monster__eye svg {
-    width: 100%;
-    height: 100%;
-    display: block;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
+/* Eyelids */
 .lid {
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 110px;
-    height: 30%;
-    z-index: 2;
-    background-color: #570B57;
-    transition: height .25s ease;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 25%;
+  z-index: 2;
+  background-color: #570B57;
+  transition: height .25s ease;
+  pointer-events: none;
 }
 
-.monster:hover .lid {
-    height: 110px;
+.monster:hover .lid { height: 110px; }
+
+/* Kiss mouth */
+.monster__kiss {
+  position: absolute;
+  right: 80px;
+  top: 30px;
+  z-index: 4;
+  font-size: 90px;
+  line-height: 1;
+  color: #570B57;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s ease;
 }
 
-.monster:not(:hover) .lid {
-    height: 25%;
-    transition: height .25s ease;
+.monster:hover .monster__kiss { opacity: 1; }
+
+/* Heart */
+.heart {
+  position: relative;
+  z-index: 3;
+  right: 160px;
+  bottom: -50px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity .2s ease;
 }
 
 .monster:hover .heart {
-    animation: blow 1s ease-in 3s forwards 1;
-}
-
-.monster:not(:hover) .heart {
-    display:none;
-}
-.monster__kiss {
-    content: "";
-    position: absolute;
-    z-index: 3;
-    right: 50px;
-    width: 50px;
-    height: 50px;
-    font-size: 90px;
-    color:#570B57;
-}
-
-.monster:hover .monster__kiss{
-    animation: kiss 1s ease-in forwards 1;
-}
-
-.monster:not(:hover) .monster__kiss {
-    display:none;
-}
-
-.heart {
-    position:relative;
-    z-index: 2;
-    right: 160px;
-    bottom:-50px;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: flex-end;
-    transition: height 1s ease;
+  opacity: 1;
+  animation: blow 1s ease-in forwards;
 }
 
 .heart__circle-left {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    right: 49.8%;
-    border-radius: 50px;
-    background: red;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 49.8%;
+  border-radius: 50px;
+  background: red;
 }
+
 .heart__circle-right {
-    position:absolute;
-    top: 60%;
-    right: 17%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background: red
+  position: absolute;
+  top: 60%;
+  right: 17%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: red;
 }
 
 .heart__square {
-width: 50px;
-height: 50px;
-position: absolute;
-right: 40%;
-bottom: -21%;
-background: red;
-border-top-right-radius: 50%;
-transform: rotate(-25deg);
+  position: absolute;
+  right: 40%;
+  bottom: -21%;
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-top-right-radius: 50%;
+  transform: rotate(-25deg);
 }
 
 /* Arms */
 .monster__arms {
-    position: absolute;
-    right: 100%;
-    z-index: 1;
-    width: 150px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    gap: 100%;
+  position: absolute;
+  right: 50%;
+  z-index: 1;
+  width: 400px;
+  display: flex;
+  align-items: center;
 }
 
-.monster__arm-left {
-    left: -20px;  
+.monster__arm-left--animation {
+    animation: hug-left 3s ease-in-out infinite;
+}
+.monster__arm-right--animation {
+    animation: hug-right 3s ease-in-out infinite;
 }
 
-.monster__arm-right {
-    right: -150px;
+/* Chat bubble */
+.bubble {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
-.monster__arm-left  img{ 
-    transform-origin:right center;
-    transform: rotate(-30deg);
+.bubble__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background: #fff;
+  font-family: "Comic Neue", cursive;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 16px;
 }
 
-.monster__arm-right img{
-    transform-origin:left  center;
-    transform: scaleX(-1) rotate(30deg);
+.bubble__one {
+  width: 40px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 20px;
+  border: 1px solid black;
+  background: #fff;
+  align-self: flex-start;
 }
 
-.monster__arm-left img.monster__arm-left--animation  {
-    animation: hug-left 2.4s ease-in-out infinite;
+.bubble__two {
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 20px;
+  align-self: flex-start;
+  background: #fff;
 }
 
-.monster__arm-right img.monster__arm-right--animation {
-    animation: hug-right 2.4s ease-in-out infinite;
-}
-
-.monster__bubble {
-    position: absolute;
-    top: -10px;
-    right: -20px;
-    z-index: 2;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.monster__bubble.monster__bubble--text {
-    width: 100px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-}
-
+/* Animations */
 @keyframes hug-left {
-    0%   { transform: rotate(-30deg) translateX(0) rotateX(0deg); }
-    50%  { transform: rotate(-22deg) translateX(18px) rotateX(-8deg); }
-    100% { transform: rotate(-15deg) translateX(32px) rotateX(-14deg); }
+  0%   { transform: rotate(0deg) translateX(0) rotateX(0deg); }
+  50%  { transform: rotate(-22deg) translateX(18px) rotateX(8deg); }
+  100% { transform: rotate(0deg) translateX(32px) rotateX(14deg); }
 }
 
 @keyframes hug-right {
-    0%   { transform: scaleX(-1) rotate(30deg) translateX(0) rotateX(0deg); }
-    50%  { transform: scaleX(-1) rotate(22deg) translateX(-18px) rotateX(8deg); }
-    100% { transform: scaleX(-1) rotate(15deg) translateX(-32px) rotateX(14deg); }
+  0%   { transform: scaleX(-1) rotate(30deg) translateX(0) rotateX(0deg); }
+  50%  { transform: scaleX(-1) rotate(22deg) translateX(18px) rotateX(8deg); }
+  100% { transform: scaleX(-1) rotate(0deg) translateX(32px) rotateX(14deg); }
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-}
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes blow {
-    0% {
-        transform: translateX(0px) translateY(0px);
-    }
-    50% {
-        transform: translateX(100px) translateY(-60px);
-    }
-
-    100% {transform: translateX(100px) translateY(-60px) rotateY(360deg);}
+  0%   { transform: translateX(0) translateY(0); }
+  50%  { transform: translateX(100px) translateY(-60px); }
+  100% { transform: translateX(100px) translateY(-60px) rotateY(360deg); }
 }
