@@ -42,7 +42,7 @@ body {
     justify-content: center;
     align-items: center;
     perspective: 900px;
-    transform: translateY(-50%)
+    transform: translateY(-50%);
     transform-style: preserve-3d;
     animation: float 3s ease-in-out infinite;
 }
@@ -69,8 +69,10 @@ body {
 .monster__eyes {
     position: absolute;
     top: 30%;
-    left: 20%;
+    left: 22%;
     z-index: 2;
+    width: 220px;
+    height: 110px;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -78,9 +80,9 @@ body {
 
 /* Each eye */
 .monster__eye {
+    position: relative;
     width: 110px;
     height: 110px;
-    position: relative;
     border-radius: 50%;
     cursor: pointer;
     overflow: hidden;
@@ -90,60 +92,165 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    transform-origin: center;
 }
 
 .lid {
     position:absolute;
     top: 0;
     left: 0;
-    width: 100px;
-    height: 0;
+    width: 110px;
+    height: 30%;
     z-index: 2;
-    background-color: blueviolet;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    transition: height 0.25s ease;
+    background-color: #570B57;
+    transition: height .25s ease;
+    pointer-events: none;
 }
 
-.monster__eye:hover .lid {
-    height: 100%;
+.monster:hover .lid {
+    height: 110px;
+}
+
+.monster:not(:hover) .lid {
+    height: 25%;
+    transition: height .25s ease;
+}
+
+.monster:hover .heart {
+    animation: blow 1s ease-in 3s forwards 1;
+}
+
+.monster:not(:hover) .heart {
+    display:none;
+}
+.monster__kiss {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 90px;
+    color:#570B57;
+}
+
+.monster:hover .monster__kiss{
+    animation: kiss 1s ease-in forwards 1;
+}
+
+.monster:not(:hover) .monster__kiss {
+    display:none;
+}
+
+.heart {
+    position:relative;
+    z-index: 2;
+    right: 160px;
+    bottom:-50px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    transition: height 1s ease;
+}
+
+.heart__circle-left {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 49.8%;
+    border-radius: 50px;
+    background: red;
+}
+.heart__circle-right {
+    position:absolute;
+    top: 60%;
+    right: 17%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: red
+}
+
+.heart__square {
+width: 50px;
+height: 50px;
+position: absolute;
+right: 40%;
+bottom: -21%;
+background: red;
+border-top-right-radius: 50%;
+transform: rotate(-25deg);
 }
 
 /* Arms */
 .monster__arms {
     position: absolute;
+    right: 100%;
     z-index: 1;
-    top: 16%;
-    left: 30%;
     width: 150px;
+    height: auto;
     display: flex;
+    align-items: center;
+    gap: 100%;
 }
 
-.monster__arm-left.monster__arm-left--animation {
+.monster__arm-left {
+    left: -20px;  
+}
+
+.monster__arm-right {
+    right: -150px;
+}
+
+.monster__arm-left  img{ 
+    transform-origin:right center;
+    transform: rotate(-30deg);
+}
+
+.monster__arm-right img{
+    transform-origin:left  center;
+    transform: scaleX(-1) rotate(30deg);
+}
+
+.monster__arm-left img.monster__arm-left--animation  {
+    animation: hug-left 2.4s ease-in-out infinite;
+}
+
+.monster__arm-right img.monster__arm-right--animation {
+    animation: hug-right 2.4s ease-in-out infinite;
+}
+
+.monster__bubble {
     position: absolute;
-    left: -128%;
-    transform-origin: left center;
-    transform: rotate(-38deg);
-    animation: arm-left-up 2s ease-in-out infinite alternate;
+    top: -10px;
+    right: -20px;
+    z-index: 2;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-.monster__arm-right.monster__arm-right--animation {
-    position: absolute;
-    right: -135%;
-    transform-origin: right center;
-    transform: rotate(38deg);
-    animation: arm-right-up 2s ease-in-out infinite alternate;
+.monster__bubble.monster__bubble--text {
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
-@keyframes arm-left-up {
-  0%   { transform: rotate(-38deg) rotateX(0deg) scaleY(0);}
-  100% { transform: rotate(-38deg)  rotateX(-30deg) scaleY(1);}
+@keyframes hug-left {
+    0%   { transform: rotate(-30deg) translateX(0) rotateX(0deg); }
+    50%  { transform: rotate(-22deg) translateX(18px) rotateX(-8deg); }
+    100% { transform: rotate(-15deg) translateX(32px) rotateX(-14deg); }
 }
 
-@keyframes arm-right-up {
-  0%   { transform: rotate(38deg) rotateX(0deg) scaleY(0);}
-  100% { transform: rotate(38deg) rotateX(30deg) scaleY(1);}
+@keyframes hug-right {
+    0%   { transform: scaleX(-1) rotate(30deg) translateX(0) rotateX(0deg); }
+    50%  { transform: scaleX(-1) rotate(22deg) translateX(-18px) rotateX(8deg); }
+    100% { transform: scaleX(-1) rotate(15deg) translateX(-32px) rotateX(14deg); }
 }
 
 @keyframes float {
@@ -156,4 +263,15 @@ body {
     100% {
         transform: translateY(0px);
     }
+}
+
+@keyframes blow {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+    50% {
+        transform: translateX(100px) translateY(-60px);
+    }
+
+    100% {transform: translateX(100px) translateY(-60px) rotateY(360deg);}
 }

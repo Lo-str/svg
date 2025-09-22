@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="380" transform="rotate(-210,115,-20) scale(-1,1) 
-    translate(-170,-0)">
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="160" 
+viewBox="0 0 380 160">
+ <g transform="matrix(0 1 -1 0 380 0)">
   <path d="
     M22 60 
     Q82 145 90 283
@@ -11,9 +12,7 @@
     fill="#2E1B51"
     stroke="#000"
     stroke-width="3"
-    stroke-linecap="butt" 
-    transform="scale(-1,1) 
-    translate(-170,-0)"/>
+    stroke-linecap="butt"/>
     <path d="
     M90 283 
     Q95 290 97 280
@@ -34,7 +33,6 @@
     fill="#1b4b51ff"
     stroke="#000"
     stroke-width="3"
-    stroke-linejoin="round"
-    transform="scale(-1,1) 
-    translate(-170,-0)" />  
+    stroke-linejoin="round"/>
+  </g> 
 </svg>
