@@ -42,7 +42,9 @@ body {
     justify-content: center;
     align-items: center;
     perspective: 900px;
+    transform: translateY(-50%)
     transform-style: preserve-3d;
+    animation: float 3s ease-in-out infinite;
 }
 
 /* Head */
@@ -78,13 +80,34 @@ body {
 .monster__eye {
     width: 110px;
     height: 110px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
 }
+
 .monster__eye svg {
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: block;
+    transform-origin: center;
+}
+
+.lid {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 0;
+    z-index: 2;
+    background-color: blueviolet;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transition: height 0.25s ease;
+}
+
+.monster__eye:hover .lid {
+    height: 100%;
 }
 
 /* Arms */
@@ -114,11 +137,23 @@ body {
 }
 
 @keyframes arm-left-up {
-  0%   { transform: rotate(-38deg) translateY(0) rotateX(0deg) scaleY(0);}
-  100% { transform: rotate(-28deg) translateY(32px) rotateX(-30deg) scaleY(1);}
+  0%   { transform: rotate(-38deg) rotateX(0deg) scaleY(0);}
+  100% { transform: rotate(-38deg)  rotateX(-30deg) scaleY(1);}
 }
 
 @keyframes arm-right-up {
-  0%   { transform: rotate(38deg) translateY(0) rotateX(0deg) scaleY(0);}
-  100% { transform: rotate(28deg) translateY(32px) rotateX(30deg) scaleY(1);}
+  0%   { transform: rotate(38deg) rotateX(0deg) scaleY(0);}
+  100% { transform: rotate(38deg) rotateX(30deg) scaleY(1);}
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+}
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }

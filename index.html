@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVG</title>
-
-    <!-- Normalize and stylesheet links -->
-    <link rel="stylesheet" href="styles/normalize-code.css">
-    <link rel="stylesheet" href="styles/index.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barrio&family=Rock+3D&display=swap" rel="stylesheet">
+    <!-- CSS animation -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <!-- Normalize and stylesheet links -->
+    <link rel="stylesheet" href="styles/normalize-code.css">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
 
@@ -19,11 +23,11 @@
     <main class="vr">
     
         <!-- Titles -->
-        <h1 class="vr__h1">svg monster</h1>
-        <h2 class="vr__h2">Neurospicy's Besty</h2>
+        <h1 class="vr__h1 animate__animated animate__bounceInDown">svg monster</h1>
+        <h2 class="vr__h2 animate__animated animate__rubberBand">Neurospicy's Besty</h2>
 
         <!-- Monster wrapper -->
-        <div class="monster">
+        <div class="monster float">
             <!-- Head -->
             <div class="monster__head">
                 <img src="images/monster-head.svg" alt="Monster head">
@@ -32,15 +36,20 @@
             <!-- Eyes -->
             <div class="monster__eyes">
                 <div class="monster__eye monster__eye--left">
+                    <div class="lid">
+                    </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="400"         height="400" viewBox="0 0 400 400" fill="none">
                         <circle cx="200" cy="200" r="200" fill="#F28684"/>
                         <line x1="100" y1="100" x2="300" y2="300"
                                 stroke="black" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" />
-                        <line x1="300" y1="100" x2="100" y2="300"              stroke="black" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="300" y1="100" x2="100" y2="300"              stroke="black" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" />                  
                     </svg>
+                
                 </div>
 
-                <div class="monster__eye monster__eye--right">                
+                <div class="monster__eye monster__eye--right">
+                    <div class="lid">
+                    </div>               
                     <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" fill="none">
                         <circle cx="200" cy="200" r="200" fill="navy"/>
                         <line x1="100" y1="100" x2="300" y2="300"
